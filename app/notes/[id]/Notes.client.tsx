@@ -14,7 +14,6 @@ import NoteList from '@/components/NoteList/NoteList';
 import NoteModal from '@/components/NoteModal/NoteModal';
 import SearchBox from '@/components/SearchBox/SearchBox';
 import Pagination from '@/components/Pagination/Pagination';
-import Error from './[id]/error';
 import { useDebounce } from 'use-debounce';
 
 export default function App() {
@@ -54,9 +53,7 @@ export default function App() {
         </button>
       </header>
       {isLoading && <strong className={css.loading}>Loading notes...</strong>}
-      {isError && searchTerm.trim() !== '' && (
-        <Error message="Something went wrong. Please try again." />
-      )}
+      {isError && <p>Something went wrong. Please try again.</p>}
       {data && <NoteList notes={data.notes} />}
       {isModalOpen && <NoteModal onClose={closeModal} onSuccess={closeModal} />}
     </div>
