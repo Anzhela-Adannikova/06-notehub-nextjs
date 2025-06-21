@@ -9,7 +9,7 @@
 import { useState } from 'react';
 import { fetchNotes } from '@/lib/api';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import css from './App.module.css';
+import css from './NotesPage.module.css';
 import NoteList from '@/components/NoteList/NoteList';
 import NoteModal from '@/components/NoteModal/NoteModal';
 import SearchBox from '@/components/SearchBox/SearchBox';

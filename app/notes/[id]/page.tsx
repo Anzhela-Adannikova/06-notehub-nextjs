@@ -7,21 +7,18 @@ import { fetchNoteById } from '@/lib/api';
 import NoteDetailsClient from '@/components/NoteDetailsClient/NoteDetailsClient';
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export default async function NoteDetailsPage({ params }: Props) {
-  const id = Number(params.id);
-
-  if (!id || Number.isNaN(id)) {
-    throw new Error('Invalid note ID');
-  }
+  const { id } = await params;
+  const noteId = Number(id);
 
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['notes', id],
-    queryFn: () => fetchNoteById(id),
+    queryKey: ['notes', noteId],
+    queryFn: () => fetchNoteById(noteId),
   });
 
   return (
