@@ -29,6 +29,8 @@ export default function App() {
     placeholderData: keepPreviousData,
   });
 
+  console.log('Data on Vercel:', data);
+
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
