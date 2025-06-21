@@ -12,6 +12,11 @@ type Props = {
 
 export default async function NoteDetailsPage({ params }: Props) {
   const id = Number(params.id);
+
+  if (!id || Number.isNaN(id)) {
+    throw new Error('Invalid note ID');
+  }
+
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({

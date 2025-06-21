@@ -7,8 +7,8 @@ export default function Home() {
         <h1 className={css.title}>Welcome to NoteHub</h1>
         <p className={css.description}>
           NoteHub is a simple and efficient application designed for managing
-          personal notes. It helps keep you're thoughts organized and accessible
-          in one place, whether your at home or on the go.
+          personal notes. It helps keep you`&apos`re thoughts organized and
+          accessible in one place, whether your at home or on the go.
         </p>
         <p className={css.description}>
           The app provides a clean interface for writing, editing, and browsing

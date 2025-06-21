@@ -1,8 +1,8 @@
 // колекція нотатків
 import css from './NoteList.module.css';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { deleteNote } from '../../services/noteService';
-import type { Note } from '../../types/note';
+import { deleteNote } from '@/lib/api';
+import type { Note } from '@/app/types/note';
 
 interface NoteListProps {
   notes: Note[];
