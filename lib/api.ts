@@ -8,7 +8,7 @@ createNote: creating a new note on the server
 deleteNote: delete a note by a given identifier */
 
 import axios from 'axios';
-import type { Note, NewNoteData } from '../app/types/note';
+import type { Note, NewNoteData } from '../types/note';
 
 const BASE_URL = 'https://notehub-public.goit.study/api/notes';
 
