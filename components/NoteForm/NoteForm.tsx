@@ -56,7 +56,7 @@ export default function NoteForm({ onSuccess, onClose }: NoteFormProps) {
               as="textarea"
               id="content"
               name="content"
-              rows="8"
+              rows={8}
               className={css.textarea}
             />
             <ErrorMessage

@@ -7,9 +7,13 @@ import { fetchNoteById } from '@/lib/api';
 import { useParams } from 'next/navigation';
 import NoteModal from '@/components/NoteModal/NoteModal';
 
+type NoteParams = {
+  id: string;
+};
+
 export default function NoteDetailsClient() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const params = useParams();
+  const params = useParams() as NoteParams;
   const id = Number(params.id);
 
   const {

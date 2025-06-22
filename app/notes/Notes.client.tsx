@@ -8,15 +8,20 @@
 
 import { useState } from 'react';
 import { fetchNotes } from '@/lib/api';
-import { keepPreviousData, useQuery } from '@tanstack/react-query';
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
+import { useDebounce } from 'use-debounce';
+import type { FetchNoteService } from '@/types/note';
 import css from './NotesPage.module.css';
 import NoteList from '@/components/NoteList/NoteList';
 import NoteModal from '@/components/NoteModal/NoteModal';
 import SearchBox from '@/components/SearchBox/SearchBox';
 import Pagination from '@/components/Pagination/Pagination';
-import { useDebounce } from 'use-debounce';
 
-export default function App() {
+interface NotesClientProps {
+  initialData: FetchNoteService;
+}
+
+export default function NotesClient({ initialData }: NotesClientProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,9 +32,8 @@ export default function App() {
     queryKey: ['notes', currentPage, debounceSearchTerm],
     queryFn: () => fetchNotes(currentPage, debounceSearchTerm, perPage),
     placeholderData: keepPreviousData,
+    initialData,
   });
-
-  console.log('Data on Vercel:', data);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
