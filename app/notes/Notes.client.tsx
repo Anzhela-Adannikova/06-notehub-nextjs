@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { fetchNotes } from '@/lib/api';
 import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import { useDebounce } from 'use-debounce';
-import type { FetchNoteService } from '@/types/note';
+import type { FetchNoteService } from '@/lib/api';
 import css from './NotesPage.module.css';
 import NoteList from '@/components/NoteList/NoteList';
 import NoteModal from '@/components/NoteModal/NoteModal';

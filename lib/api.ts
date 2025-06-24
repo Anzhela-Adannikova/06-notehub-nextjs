@@ -21,7 +21,7 @@ const noteServiceClient = axios.create({
   },
 });
 
-interface FetchNoteService {
+export interface FetchNoteService {
   notes: Note[];
   totalPages: number;
 }
